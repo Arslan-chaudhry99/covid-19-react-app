@@ -64,6 +64,7 @@ function App() {
 
   return (
     <>
+    <div className="">
       <div className="input_part">
         <div className="input_part_main">
           <input
@@ -83,11 +84,11 @@ function App() {
         <h4>{Country_text},LIVE CORONA UPDATE</h4>
         <div className="redlight"></div>
       </div>
-      <table className="table ">
-        <thead className="thead-dark">
-          <tr>
-            <th scope="col">COUNTRY</th>
-            <th scope="col">Total Cases</th>
+      <table className="table flow">
+        <thead className="thead-dark ">
+          <tr className="">
+            <th scope="col ">COUNTRY</th>
+            <th scope="col ">Total Cases</th>
             <th scope="col">Active Cases</th>
             <th scope="col">Recover Cases</th>
             <th scope="col">New Cases</th>
@@ -115,6 +116,7 @@ function App() {
         </tbody>
       </table>
       <Summery/>
+      </div>
     </>
   );
 }

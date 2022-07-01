@@ -1,17 +1,36 @@
 import "./components/style.css";
 import { useEffect, useState } from "react";
 import { useCallback } from "react";
+
 function Summery() {
   const [userInput, setuserInput] = useState("");
-  const [newData, setnewData] = useState([]);
-  const [desireValue, setdesireValue] = useState();
+  const [getnewData, setgetNewData] = useState([]);
+  const [desireValue, setdesireValue] = useState([]);
+  
+  const filterNow=()=>{
+    console.log(
+      
+      getnewData.filter((e)=>{
+      return e.Country === "pakistan"
+      
+
+       
+         
+      }),
+     
+    );
+     
+      
+    
+    
+  }
+
 
   const sumery = async () => {
     try {
       const response = await fetch(`https://api.covid19api.com/summary`);
       const data = await response.json();
-      setnewData(data.Countries)
-      console.log(data.Countries);
+      setgetNewData(data.Countries)
     } catch (error) {
       console.log("not po");
     }
@@ -23,20 +42,21 @@ function Summery() {
   }, []);
   return (
     <>
+    <div className="">
       <div className="input_part">
         <div className="input_part_main">
-          <input
+          {/* <input
             type="text"
             placeholder="Search In covid summery"
             value={userInput}
             onChange={(e) => {
               setuserInput(e.target.value);
             }}
-          />
-          <button>{/* <i className="bi bi-search"></i> */}/</button>
+          /> */}
+          {/* <button onClick={filterNow}><i className="bi bi-search"></i>/</button> */}
         </div>
       </div>
-      <table className="table ">
+      <table className="table flow">
         <thead className="thead-dark">
           <tr>
             <th scope="col">NO#</th>
@@ -52,7 +72,7 @@ function Summery() {
         <tbody>
           
             {
-             newData.map((e,index)=>{
+             getnewData.map((e,index)=>{
               return(
                 <>
                 <tr>
@@ -74,7 +94,7 @@ function Summery() {
           
         </tbody>
       </table>
-      
+      </div>
     </>
   );
 }

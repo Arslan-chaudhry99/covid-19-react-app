@@ -1,0 +1,13 @@
+{
+           "Countries":[
+                      {
+                                 "Country" :"pakistan",        
+                                 "NewConfirmed" :"997,763",        
+                                 "NewDeaths" :"997,763,1",        
+                                 "NewRecovered" :"997,763,2",        
+                                 "TotalConfirmed" :"997,763,3",        
+                                 "TotalDeaths" :"997,763,4",        
+                                 "TotalRecovered" :"997,763,5"        
+                      }
+           ]
+}
