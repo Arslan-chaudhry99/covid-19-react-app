@@ -78,7 +78,7 @@ function App() {
             }}
           />
           <button onClick={getData}>
-          Serach Now!
+          <i className="bi bi-search"></i>
           </button>
         </div>
       </div>
