@@ -7,6 +7,8 @@ function Summery() {
   const [getnewData, setgetNewData] = useState([]);
   const [desireValue, setdesireValue] = useState([]);
   
+  
+  
   const filterNow=()=>{
     console.log(
       
@@ -31,6 +33,7 @@ function Summery() {
       const response = await fetch(`https://api.covid19api.com/summary`);
       const data = await response.json();
       setgetNewData(data.Countries)
+      
     } catch (error) {
       console.log("not po");
     }
@@ -72,18 +75,19 @@ function Summery() {
         <tbody>
           
             {
+              
              getnewData.map((e,index)=>{
               return(
                 <>
                 <tr>
                 <th scope="row">{1+index}</th>
-                <th scope="row">{e.Country}</th>
-                <th scope="row">{e.NewConfirmed}</th>
-                <th scope="row">{e.NewDeaths}</th>
-                <th scope="row">{e.NewRecovered}</th>
-            <th scope="row " className="red">{e.TotalConfirmed}</th>
-            <th scope="row " className="red">{e.TotalDeaths}</th>
-            <th scope="row">{e.TotalRecovered}</th>
+                <th scope="row">{e.Country==="" ? "N/A":e.Country}</th>
+                <th scope="row">{e.NewConfirmed==="" ? "N/A":e.NewConfirmed}</th>
+                <th scope="row">{e.NewDeaths ==="" ? "N/A":e.NewDeaths}</th>
+                <th scope="row">{e.NewRecovered ==="" ? "N/A":e.NewRecovered}</th>
+            <th scope="row " className="red">{e.TotalConfirmed ==="" ? "N/A":e.TotalConfirmed}</th>
+            <th scope="row " className="red">{e.TotalDeaths ==="" ? "N/A":e.TotalDeaths}</th>
+            <th scope="row">{e.TotalRecovered==="" ? "N/A":e.TotalRecovered}</th>
             </tr>
             </>
               )

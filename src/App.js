@@ -65,7 +65,9 @@ function App() {
   return (
     <>
     <div className="">
+    
       <div className="input_part">
+        
         <div className="input_part_main">
           <input
             type="text"
@@ -76,7 +78,7 @@ function App() {
             }}
           />
           <button onClick={getData}>
-            {/* <i className="bi bi-search"></i> */}/
+          Serach Now!
           </button>
         </div>
       </div>
@@ -100,18 +102,18 @@ function App() {
         <tbody>
           <tr>
             <th scope="row">{Country_text}</th>
-            <th scope="row">{totalCases}</th>
-            <th scope="row">{activeCases}</th>
-            <th scope="row">{recoverCases}</th>
+            <th scope="row">{totalCases==="" ? 'N/A':totalCases}</th>
+            <th scope="row">{activeCases==="" ? 'N/A':activeCases}</th>
+            <th scope="row">{recoverCases==="" ? 'N/A':recoverCases}</th>
             <th scope="row " className="red">
-              {newCases}
+              {newCases==="" ? 'N/A':newCases}
             </th>
             {/* <th scope="row">{deathCases}</th> */}
             <th scope="row " className="red">
-              {newDeaths}
+              {newDeaths ==="" ? "N/A":newDeaths}
             </th>
-            <th scope="row">{totalDeaths}</th>
-            <th scope="row">{lastUpdate}</th>
+            <th scope="row">{totalDeaths ==="" ? "N/A":totalDeaths}</th>
+            <th scope="row">{lastUpdate ==="" ? "N/A":lastUpdate}</th>
           </tr>
         </tbody>
       </table>
