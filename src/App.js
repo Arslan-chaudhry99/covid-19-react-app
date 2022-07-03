@@ -26,7 +26,7 @@ function App() {
     } = featchedData;
     // use to check if country exist or not
     if (Country_text === "World") {
-      alert("Country name not correct.please Enter a correct country name");
+      alert(`${desireCountry} not correct.please Enter a correct country name`);
     } else {
       const coronaData = {
         Country_text,
@@ -61,7 +61,10 @@ function App() {
     newCases,
     totalDeaths,
   } = covidData;
-
+  // emptyAlert
+  const emptyAlert=()=>{
+    alert("Please Enter your query before continue")
+  }
   return (
     <>
     <div className="">
@@ -77,9 +80,10 @@ function App() {
               setdesireCountry(e.target.value);
             }}
           required />
-          <button onClick={getData}>
-          <i className="bi bi-search"></i>
-          </button>
+          {
+              desireCountry ? <button onClick={getData}><i className="bi bi-search"></i></button>:<button onClick={emptyAlert} ><i className="bi bi-search"></i></button>
+            }
+          
         </div>
       </div>
       <div className="update">
