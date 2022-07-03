@@ -76,7 +76,7 @@ function App() {
             onChange={(e) => {
               setdesireCountry(e.target.value);
             }}
-          />
+          required />
           <button onClick={getData}>
           <i className="bi bi-search"></i>
           </button>
