@@ -67,11 +67,11 @@ function App() {
   }
   return (
     <>
-    <div className="">
+    
     
       <div className="input_part">
+       
         
-        <div className="input_part_main">
           <input
             type="text"
             placeholder="Search Your Location"
@@ -84,21 +84,21 @@ function App() {
               desireCountry ? <button onClick={getData}><i className="bi bi-search"></i></button>:<button onClick={emptyAlert} ><i className="bi bi-search"></i></button>
             }
           
-        </div>
+        
       </div>
       <div className="update">
-        <h4>{Country_text},LIVE CORONA UPDATE</h4>
-        <div className="redlight"></div>
+        <i className="dptext">{Country_text},LIVE CORONA UPDATE</i>
+        <i className="redlight"></i>
       </div>
-      <table className="table flow">
-        <thead className="thead-dark ">
-          <tr className="">
-            <th scope="col ">COUNTRY</th>
+      <table className="table ">
+        <thead className="thead-dark">
+          <tr >
+            <th scope="col w">COUNTRY</th>
             <th scope="col ">Total Cases</th>
             <th scope="col">Active Cases</th>
             <th scope="col">Recover Cases</th>
             <th scope="col">New Cases</th>
-            <th scope="col">New Death Cases</th>
+            <th scope="col">New Deaths</th>
             <th scope="col">Total Deaths</th>
             <th scope="col">Last Update</th>
           </tr>
@@ -122,7 +122,7 @@ function App() {
         </tbody>
       </table>
       <Summery/>
-      </div>
+      
     </>
   );
 }

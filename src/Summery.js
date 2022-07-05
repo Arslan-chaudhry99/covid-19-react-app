@@ -45,24 +45,12 @@ function Summery() {
   }, []);
   return (
     <>
-    <div className="">
-      <div className="input_part">
-        <div className="input_part_main">
-          {/* <input
-            type="text"
-            placeholder="Search In covid summery"
-            value={userInput}
-            onChange={(e) => {
-              setuserInput(e.target.value);
-            }}
-          /> */}
-          {/* <button onClick={filterNow}><i className="bi bi-search"></i>/</button> */}
-        </div>
-      </div>
-      <table className="table flow">
+    
+     
+      <table className="table ">
         <thead className="thead-dark">
           <tr>
-            <th scope="col">NO#</th>
+            <th scope="col ">#</th>
             <th scope="col">Country</th>
             <th scope="col">New Confirmed</th>
             <th scope="col">New Deaths</th>
@@ -98,7 +86,7 @@ function Summery() {
           
         </tbody>
       </table>
-      </div>
+     
     </>
   );
 }
