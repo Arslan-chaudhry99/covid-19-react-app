@@ -1,0 +1,91 @@
+*{
+           margin: 0;
+           padding: 10px;
+
+}
+body{
+  object-fit: cover;
+  object-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+ 
+}
+
+.update{
+           width: 100%;
+           padding: 0%;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           
+}
+.redlight{    
+background-color: rgb(255, 0, 0);
+border-radius: 50%;
+}
+
+.input_part{
+           width: 100%;
+           height: auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          
+         
+         }
+
+         
+         .input_part  input{
+           padding: 5px 0;
+           text-align: center;
+           border: 1px solid black;
+           /* border: 0; */
+           outline: none;
+           border-radius: 10px;
+           border-bottom-right-radius: 0px;
+           border-top-right-radius: 0;
+           width: auto;
+         }
+         .input_part  button{
+         background-color: #f8f9fa;
+         outline: none;
+         font-weight: bolder;
+           padding: 5px 10px;
+           
+         width: auto;
+         border: 1px solid black;
+         cursor: pointer;
+         border-radius: 10px;
+         border-bottom-left-radius: 0px;
+         border-top-left-radius: 0;
+         color: black;
+         
+         }
+         .red{
+          color: red;
+         }
+         /* .flow{
+          overflow: scroll;
+          width: 100%;
+         } */
+         /* .auto{
+          width: auto;
+          
+         } */
+         @media screen and (max-width: 992px) {
+          .input_part{
+            width: 100%;
+            
+            padding: 0;
+            margin: 0;
+            height: auto;
+            position: sticky;
+          }
+          .dptext{
+            font-size: 15px;
+          }
+          
+        }
+        
+       
+        
