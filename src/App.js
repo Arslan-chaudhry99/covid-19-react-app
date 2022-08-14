@@ -107,6 +107,7 @@ else{
     datasets: [
       {
         label: `Covid-18 ${Country_text}`,
+        label: `Covid-18 ${Country_text}`,
         backgroundColor: "rgba(75,192,192,1)",
         borderColor: "white",
 
@@ -162,6 +163,7 @@ else{
                   },
                 }}
               />
+             <span><strong style={{color:"red"}}>Note:</strong>This is a free API that I have used in this project.And if you find data blank it's means.Data is not avaiable. Thanks! Regard Arslan Chaudhry.</span> 
             </div>
           </div>
         </div>
