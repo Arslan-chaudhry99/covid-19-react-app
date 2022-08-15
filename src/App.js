@@ -47,7 +47,6 @@ function App() {
           recoverCases,
           activeCases,
           newCases,
-          deathCases,
           totalDeaths,
           newDeaths,
         };
@@ -76,20 +75,21 @@ function App() {
   
   let actualValue = [];
  
-if (covidData) {
-  
+if (covidData) { 
  let wholeValues=Object.values(covidData)
- let wholekeys=Object.keys(covidData)
- console.log(wholeValues, wholekeys);
- for (let i = 2; i < wholeValues.length-2; i++) {
-  actualValue.push(parseFloat(wholeValues[i].replace(/,/g, '')))
  
+ for (let i = 2; i <8; i++) {
+  actualValue.push(wholeValues[i].replace(/[+,]/g, ''))
+  
   
  }
 }
+
 else{
   console.log("not");
 }
+
+
   const emptyAlert = () => {
     alert("Please Enter your query before continue");
   };
@@ -106,8 +106,8 @@ else{
     ],
     datasets: [
       {
-        label: `Covid-18 ${Country_text}`,
-        label: `Covid-18 ${Country_text}`,
+        label:[ `Covid-18 ${Country_text}`],
+        
         backgroundColor: "rgba(75,192,192,1)",
         borderColor: "white",
 
@@ -126,7 +126,14 @@ else{
       },
     ],
   };
-
+let colors=[
+  "#17a2b8",
+  "#28a745",
+  "#ffc107",
+  "#dc3545",
+  "#dc3545",
+  "#dc3545",
+]
   return (
     <>
       <button
@@ -163,6 +170,16 @@ else{
                   },
                 }}
               />
+      <div className="tables">
+        {
+          actualValue.map((val,index)=>{
+            return(<>
+             <div className="table_items"><span className="tab_cir shadow"style={{backgroundColor:`${colors[index]}`}}></span><span>{val ? val:"N/A"}</span></div>
+            </>)
+          })
+        }
+       
+      </div>
              <span><strong style={{color:"red"}}>Note:</strong>This is a free API that I have used in this project.And if you find data blank it's means.Data is not avaiable. Thanks! Regard Arslan Chaudhry.</span> 
             </div>
           </div>
@@ -170,9 +187,10 @@ else{
       </div>
 
       <div id="total_body">
-        <div className="input_part">
+        <div className="input_part ">
           <input
             type="text"
+            className="shadow-lg"
             placeholder="Search Your Location"
             value={desireCountry}
             onChange={(e) => {
@@ -194,7 +212,7 @@ else{
           <i className="dptext" style={{ color: "white" }}>
             {Country_text},LIVE CORONA UPDATE
           </i>
-          <div class="spinner-grow text-danger" role="status">
+          <div class="spinner-grow text-danger " role="status">
             <span class="sr-only"></span>
           </div>
         </div>

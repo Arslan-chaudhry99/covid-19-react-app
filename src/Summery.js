@@ -89,7 +89,8 @@ let moreNow=()=>{
       </table>
       {
         
-        Leng >= More ? <button className="btn btn-warning shadow  float-end data-bs-toggle={{popover}} data-bs-trigger={{hover focus}}" onClick={moreNow}>See more</button>:<button className="btn btn-warning shadow  float-end" onClick={moveTop}><i class="bi bi-arrow-up-circle-fill"></i></button>
+        Leng >= More ? <button className="btn btn-warning shadow  float-end" onClick={moreNow}>See more</button>:<button className="btn btn-warning shadow  float-end" onClick={moveTop}><i class="bi bi-arrow-up-circle-fill"></i></button>
+        
       }
      
     </>
