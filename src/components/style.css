@@ -154,3 +154,7 @@ border-radius: 50%;
   align-items: center;
   border-radius: 50%;
 }
+.alig{
+position: relative;
+float: right;
+}

@@ -17,7 +17,7 @@ function App() {
   const getData = async () => {
     try {
       const url = `https://covid-19.dataflowkit.com/v1/${desireCountry}`;
-      
+
       setdesireCountry("");
       const covidD = await fetch(url);
       const featchedData = await covidD.json();
@@ -71,29 +71,22 @@ function App() {
     newCases,
     totalDeaths,
   } = covidData;
-  
-  
+
   let actualValue = [];
- 
-if (covidData) { 
- let wholeValues=Object.values(covidData)
- 
- for (let i = 2; i <8; i++) {
-  actualValue.push(wholeValues[i].replace(/[+,]/g, ''))
-  
-  
- }
-}
 
-else{
-  console.log("not");
-}
+  if (covidData) {
+    let wholeValues = Object.values(covidData);
 
+    for (let i = 2; i < 8; i++) {
+      actualValue.push(wholeValues[i].replace(/[+,]/g, ""));
+    }
+  } else {
+    console.log("not");
+  }
 
   const emptyAlert = () => {
     alert("Please Enter your query before continue");
   };
-  
 
   const state = {
     labels: [
@@ -106,8 +99,8 @@ else{
     ],
     datasets: [
       {
-        label:[ `Covid-18 ${Country_text}`],
-        
+        label: [`Covid-18 ${Country_text}`],
+
         backgroundColor: "rgba(75,192,192,1)",
         borderColor: "white",
 
@@ -126,36 +119,53 @@ else{
       },
     ],
   };
-let colors=[
-  "#17a2b8",
-  "#28a745",
-  "#ffc107",
-  "#dc3545",
-  "#dc3545",
-  "#dc3545",
-]
+  let colors = [
+    "#17a2b8",
+    "#28a745",
+    "#ffc107",
+    "#dc3545",
+    "#dc3545",
+    "#dc3545",
+  ];
+  let graphTxt=Object.keys(covidData)
+  
   return (
     <>
       <button
         type="button"
-        class="btn btn-info btn-setting shadow"
-        data-toggle="modal"
-        data-target=".bd-example-modal-lg"
-
+        class="btn btn-warning alig"
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"
+        style={{color:"white"}}
       >
-        <i class="bi bi-bar-chart-line-fill"></i>
+        
+      <i class="bi bi-bar-chart-line-fill"></i>
       </button>
 
       <div
-        class="modal fade bd-example-modal-lg d-pos"
+        class="modal fade "
+        id="staticBackdrop"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
         tabindex="-1"
-        role="dialog"
-        aria-labelledby="myLargeModalLabel"
+        aria-labelledby="staticBackdropLabel"
         aria-hidden="true"
+        
       >
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog">
           <div class="modal-content">
-            <div>
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">
+                Modal title
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
               <Bar
                 data={state}
                 options={{
@@ -170,17 +180,30 @@ let colors=[
                   },
                 }}
               />
-      <div className="tables">
-        {
-          actualValue.map((val,index)=>{
-            return(<>
-             <div className="table_items"><span className="tab_cir shadow"style={{backgroundColor:`${colors[index]}`}}></span><span>{val ? val:"N/A"}</span></div>
-            </>)
-          })
-        }
-       
-      </div>
-             <span><strong style={{color:"red"}}>Note:</strong>This is a free API that I have used in this project.And if you find data blank it's means.Data is not avaiable. Thanks! Regard Arslan Chaudhry.</span> 
+              
+           {
+            
+             actualValue.map((val,index)=>{
+               return(<>
+               
+                <div className="table_items" style={{float:"left"}}><span className="tab_cir shadow"style={{backgroundColor:`${colors[index]}`}}></span><span>{val ? val:"N/A"}</span></div>
+                
+               </>)
+             })
+           }
+          
+         
+         
+            </div>
+            <span style={{wordBreak:"break-all"}}><strong style={{color:"red"}}>Note:</strong>This is a free API that I have used in this project.<br/> And if you find data blank it's means.Data is not avaiable.<br/> Thanks! Regard Arslan Chaudhry.</span> 
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
             </div>
           </div>
         </div>
@@ -209,7 +232,7 @@ let colors=[
           )}
         </div>
         <div className="update">
-          <i className="dptext" style={{ color: "white" }}>
+          <i className="dptext" style={{ color: "white", fontFamily:"sans-serif" }}>
             {Country_text},LIVE CORONA UPDATE
           </i>
           <div class="spinner-grow text-danger " role="status">
@@ -231,7 +254,6 @@ let colors=[
           </thead>
           <tbody>
             <tr>
-            
               <th scope="row">{Country_text}</th>
               <th scope="row">{totalCases === "" ? "N/A" : totalCases}</th>
               <th scope="row">{activeCases === "" ? "N/A" : activeCases}</th>
