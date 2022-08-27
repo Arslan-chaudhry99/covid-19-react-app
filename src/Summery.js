@@ -1,38 +1,31 @@
 import "./components/style.css";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { useCallback } from "react";
 
 function Summery() {
-  const [userInput, setuserInput] = useState("");
   const [getnewData, setgetNewData] = useState([]);
-  const [desireValue, setdesireValue] = useState([]);
-const [More, setMore]=useState(15)
-const [Leng,setLeng]=useState()
-const moveTop=()=>{
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  const [More, setMore] = useState(15);
+  const [Leng, setLeng] = useState();
+ 
+  const moveTop = () => {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  };
+  let bodyBlur = document.getElementById("total_body");
 
-}
-let bodyBlur=document.getElementById("total_body")
-
-let moreNow=()=>{
-  let seeMore=More+10
-  setMore(seeMore)
-  sumery()
-    bodyBlur.classList.add("total_body")
-    
-  
-  
-}
+  let moreNow = () => {
+    setMore(More + 10);
+    sumery();
+    bodyBlur.classList.add("total_body");
+  };
   const sumery = async () => {
     try {
-
       const response = await fetch(`https://api.covid19api.com/summary`);
       const data = await response.json();
-      setLeng(data.Countries.length)
-      let sli=data.Countries.slice(0,More)
+      setLeng(data.Countries.length);
+      let sli = data.Countries.slice(0, More);
       setgetNewData(sli);
-      bodyBlur.classList.remove("total_body")
+      bodyBlur.classList.remove("total_body");
     } catch (error) {
       console.log("not po");
     }
@@ -43,7 +36,7 @@ let moreNow=()=>{
   }, []);
   return (
     <>
-      <table className="table " style={{color:"white"}}>
+      <table className="table " style={{ color: "white" }}>
         <thead className="thead-dark">
           <tr>
             <th scope="col ">#</th>
@@ -87,12 +80,15 @@ let moreNow=()=>{
           })}
         </tbody>
       </table>
-      {
-        
-        Leng >= More ? <button className="btn btn-warning shadow  float-end" onClick={moreNow}>See more</button>:<button className="btn btn-warning shadow  float-end" onClick={moveTop}><i class="bi bi-arrow-up-circle-fill"></i></button>
-        
-      }
-     
+      {Leng >= More ? (
+        <button className="btn btn-warning shadow  float-end" onClick={moreNow}>
+          See more
+        </button>
+      ) : (
+        <button className="btn btn-warning shadow  float-end" onClick={moveTop}>
+          <i class="bi bi-arrow-up-circle-fill"></i>
+        </button>
+      )}
     </>
   );
 }

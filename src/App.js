@@ -1,5 +1,5 @@
 import "./components/style.css";
-import { useEffect, useState } from "react";
+import { useEffect,  useState } from "react";
 import Summery from "./Summery.js";
 import Graph from "./Graph";
 import { Bar } from "react-chartjs-2";
@@ -50,6 +50,7 @@ function App() {
           totalDeaths,
           newDeaths,
         };
+
         setcovidData(coronaData);
       }
     } catch (err) {
@@ -81,7 +82,7 @@ function App() {
       actualValue.push(wholeValues[i].replace(/[+,]/g, ""));
     }
   } else {
-    console.log("not");
+   
   }
 
   const emptyAlert = () => {
@@ -133,17 +134,17 @@ function App() {
     <>
       <button
         type="button"
-        class="btn btn-warning alig"
+        className="btn btn-warning alig"
         data-bs-toggle="modal"
         data-bs-target="#staticBackdrop"
         style={{color:"white"}}
       >
         
-      <i class="bi bi-bar-chart-line-fill"></i>
+      <i className="bi bi-bar-chart-line-fill"></i>
       </button>
 
       <div
-        class="modal fade "
+        className="modal fade "
         id="staticBackdrop"
         data-bs-backdrop="static"
         data-bs-keyboard="false"
@@ -152,20 +153,20 @@ function App() {
         aria-hidden="true"
         
       >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel">
+        <div className="modal-dialog" style={{margin:"0", padding:"0", height:"60%"}}>
+          <div className="modal-content" style={{width:"95vw", margin:"0px",}}>
+            <div className="modal-header">
+              <h5 className="modal-title" id="staticBackdropLabel">
                 Modal title
               </h5>
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <Bar
                 data={state}
                 options={{
@@ -196,10 +197,10 @@ function App() {
          
             </div>
             <span style={{wordBreak:"break-all"}}><strong style={{color:"red"}}>Note:</strong>This is a free API that I have used in this project.<br/> And if you find data blank it's means.Data is not avaiable.<br/> Thanks! Regard Arslan Chaudhry.</span> 
-            <div class="modal-footer">
+            <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
+                className="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
                 Close
@@ -235,8 +236,8 @@ function App() {
           <i className="dptext" style={{ color: "white", fontFamily:"sans-serif" }}>
             {Country_text},LIVE CORONA UPDATE
           </i>
-          <div class="spinner-grow text-danger " role="status">
-            <span class="sr-only"></span>
+          <div className="spinner-grow text-danger " role="status">
+            <span className="sr-only"></span>
           </div>
         </div>
         <table className="table " style={{ color: "white" }}>
@@ -254,7 +255,7 @@ function App() {
           </thead>
           <tbody>
             <tr>
-              <th scope="row">{Country_text}</th>
+              <th scope="row" >{Country_text}</th>
               <th scope="row">{totalCases === "" ? "N/A" : totalCases}</th>
               <th scope="row">{activeCases === "" ? "N/A" : activeCases}</th>
               <th scope="row">{recoverCases === "" ? "N/A" : recoverCases}</th>
