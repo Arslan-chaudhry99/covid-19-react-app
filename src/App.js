@@ -157,7 +157,7 @@ function App() {
           <div className="modal-content" style={{width:"95vw", margin:"0px",}}>
             <div className="modal-header">
               <h5 className="modal-title" id="staticBackdropLabel">
-                Modal title
+                {Country_text} covid Statistics
               </h5>
               <button
                 type="button"
