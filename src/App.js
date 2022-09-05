@@ -1,5 +1,5 @@
 import "./components/style.css";
-import { useEffect,  useState } from "react";
+import { useEffect, useState } from "react";
 import Summery from "./Summery.js";
 import Graph from "./Graph";
 import { Bar } from "react-chartjs-2";
@@ -82,7 +82,6 @@ function App() {
       actualValue.push(wholeValues[i].replace(/[+,]/g, ""));
     }
   } else {
-   
   }
 
   const emptyAlert = () => {
@@ -128,8 +127,8 @@ function App() {
     "#dc3545",
     "#dc3545",
   ];
-  let graphTxt=Object.keys(covidData)
-  
+  let graphTxt = Object.keys(covidData);
+
   return (
     <>
       <button
@@ -137,10 +136,9 @@ function App() {
         className="btn btn-warning alig"
         data-bs-toggle="modal"
         data-bs-target="#staticBackdrop"
-        style={{color:"white"}}
+        style={{ color: "white" }}
       >
-        
-      <i className="bi bi-bar-chart-line-fill"></i>
+        <i className="bi bi-bar-chart-line-fill"></i>
       </button>
 
       <div
@@ -151,10 +149,15 @@ function App() {
         tabindex="-1"
         aria-labelledby="staticBackdropLabel"
         aria-hidden="true"
-        
       >
-        <div className="modal-dialog" style={{margin:"0", padding:"0", height:"60%"}}>
-          <div className="modal-content" style={{width:"95vw", margin:"0px",}}>
+        <div
+          className="modal-dialog"
+          style={{ margin: "0", padding: "0", height: "60%" }}
+        >
+          <div
+            className="modal-content"
+            style={{ width: "95vw", margin: "0px" }}
+          >
             <div className="modal-header">
               <h5 className="modal-title" id="staticBackdropLabel">
                 {Country_text} covid Statistics
@@ -181,22 +184,27 @@ function App() {
                   },
                 }}
               />
-              
-           {
-            
-             actualValue.map((val,index)=>{
-               return(<>
-               
-                <div className="table_items" style={{float:"left"}}><span className="tab_cir shadow"style={{backgroundColor:`${colors[index]}`}}></span><span>{val ? val:"N/A"}</span></div>
-                
-               </>)
-             })
-           }
-          
-         
-         
+
+              {actualValue.map((val, index) => {
+                return (
+                  <>
+                    <div className="table_items" style={{ float: "left" }}>
+                      <span
+                        className="tab_cir shadow"
+                        style={{ backgroundColor: `${colors[index]}` }}
+                      ></span>
+                      <span>{val ? val : "N/A"}</span>
+                    </div>
+                  </>
+                );
+              })}
             </div>
-            <span style={{wordBreak:"break-all"}}><strong style={{color:"red"}}>Note:</strong>This is a free API that I have used in this project.<br/> And if you find data blank it's means.Data is not avaiable.<br/> Thanks! Regard Arslan Chaudhry.</span> 
+            <span style={{ wordBreak: "break-all" }}>
+              <strong style={{ color: "red" }}>Note:</strong>This is a free API
+              that I have used in this project.
+              <br /> And if you find data blank it's means.Data is not avaiable.
+              <br /> Thanks! Regard Arslan Chaudhry.
+            </span>
             <div className="modal-footer">
               <button
                 type="button"
@@ -233,7 +241,10 @@ function App() {
           )}
         </div>
         <div className="update">
-          <i className="dptext" style={{ color: "white", fontFamily:"sans-serif" }}>
+          <i
+            className="dptext"
+            style={{ color: "white", fontFamily: "sans-serif" }}
+          >
             {Country_text},LIVE CORONA UPDATE
           </i>
           <div className="spinner-grow text-danger " role="status">
@@ -255,7 +266,7 @@ function App() {
           </thead>
           <tbody>
             <tr>
-              <th scope="row" >{Country_text}</th>
+              <th scope="row">{Country_text}</th>
               <th scope="row">{totalCases === "" ? "N/A" : totalCases}</th>
               <th scope="row">{activeCases === "" ? "N/A" : activeCases}</th>
               <th scope="row">{recoverCases === "" ? "N/A" : recoverCases}</th>

@@ -1,12 +1,9 @@
 import "./components/style.css";
-import { memo, useEffect, useState } from "react";
-import { useCallback } from "react";
-
+import { useEffect, useState } from "react";
 function Summery() {
   const [getnewData, setgetNewData] = useState([]);
   const [More, setMore] = useState(15);
   const [Leng, setLeng] = useState();
- 
   const moveTop = () => {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
